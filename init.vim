@@ -36,9 +36,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'plasticboy/vim-markdown'
 
     " lsp stuff am scared to remove, needs testing
-    Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
-    Plug 'nvim-lua/lsp_extensions.nvim' " Extensions to built-in LSP, for example, providing type inlay hints
-    Plug 'nvim-lua/completion-nvim' " Autocompletion framework for built-in LSP
+    " Plug 'neovim/nvim-lspconfig' " Collection of common configurations for the Nvim LSP client
+    " Plug 'nvim-lua/lsp_extensions.nvim' " Extensions to built-in LSP, for example, providing type inlay hints
+    " Plug 'nvim-lua/completion-nvim' " Autocompletion framework for built-in LSP
 
     " telescope
     Plug 'nvim-lua/plenary.nvim'
@@ -151,6 +151,9 @@ let g:lightline = {
 " themes
 syntax on
 colorscheme onedark
+
+" fix bad looking completion
+hi CocMenuSel guibg=SkyBlue3 guifg=DarkSlateGray 
 
 " Easyalign
 
