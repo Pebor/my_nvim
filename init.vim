@@ -172,15 +172,9 @@ imap <C-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
-" USEFUL: <C-j> and <C-k> for snippet navigation 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+" USEFUL: <C-j> and <C-k> for completion navigation 
+inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
@@ -201,6 +195,7 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
+" USEFUL: use Tab for snippet jumping
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
   inoremap <silent><expr> <TAB>
