@@ -1,6 +1,3 @@
-require('plugins')
-require('settings')
-require('mappings')
 local modules = {
   "plugins",
   "settings",

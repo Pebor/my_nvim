@@ -45,6 +45,7 @@ return packer.startup(function(use)
     use {'mhinz/vim-startify'} -- simple startup screen
     use {'psliwka/vim-smoothie'} -- smooth scrolling
     use {'junegunn/vim-easy-align'} -- easy alignment `ga{motion}{patern}` - `gaip=` (or use visual)
+    use {'kyazdani42/nvim-web-devicons'}
     use {'dstein64/vim-startuptime', cmd = 'StartupTime'}
 	--
 	-- Theme
@@ -89,7 +90,7 @@ return packer.startup(function(use)
 
 	-- Statusline
 	use { 'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('config.lualine')
 		end

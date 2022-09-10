@@ -19,19 +19,19 @@ local settings = {
     foldenable = true,
 
     -- Coc
-     cursorline = true,
-     smartcase = true,
-     ignorecase = true,
-     scrolloff = 6,
+    cursorline = true,
+    smartcase = true,
+    ignorecase = true,
+    scrolloff = 6,
 
-     hidden = true,
+    hidden = true,
 
-     backup = true,
-     writebackup = true,
+    backup = false,
+    writebackup = false,
 
-     updatetime = 300,
+    updatetime = 300,
 
-     signcolumn = "yes" -- Always show signcolumns
+    signcolumn = "yes" -- Always show signcolumns
 }
 
 vim.cmd( "source ~/.config/nvim/lua/config/coc.vim" )
@@ -46,5 +46,5 @@ require('onedark').load()
 
 vim.cmd[[
 syntax on
-hi CocMenuSel guibg=SkyBlue3 guifg=DarkSlateGray 
+"hi CocMenuSel guibg=SkyBlue3 guifg=DarkSlateGray 
 ]]
