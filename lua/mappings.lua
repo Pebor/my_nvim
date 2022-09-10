@@ -6,13 +6,24 @@ local function map(mode, lhs, rhs, opts)
     if opts then
       options = vim.tbl_extend("force", options, opts)
     end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    vim.keymap.set(mode, lhs, rhs, options)
+end
+
+local function term()
+    return [[:sp
+    :Tnew
+    <C-w>J
+    :resize 10
+    ]]
 end
 
 g.mapleader = " "
 
 vim.api.nvim_create_user_command('Config', ':vs ~/.config/nvim/init.lua', {})
 vim.api.nvim_create_user_command('ConfigReload', ':luafile ~/.config/nvim/init.lua', {})
+
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 map('n', '<C-j>', 'o<Esc>k')
 map('n', '<C-k>', 'O<Esc>')
@@ -26,7 +37,9 @@ map('n', '<leader>wc', ':noh<CR>')
 
 map('t', '<Esc>', '<C-\\><C-n><C-w>w')
 
-map('n', '<F4>', '<cmd>sp<cr><cmd>Tnew<cr><C-w>J')
+map('n', '<F4>', term())
+
+map('n', '<leader>tn', '<cmd>tabnew<CR>')
 
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')

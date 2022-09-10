@@ -47,7 +47,8 @@ return packer.startup(function(use)
     use {'junegunn/vim-easy-align'} -- easy alignment `ga{motion}{patern}` - `gaip=` (or use visual)
     use {'kyazdani42/nvim-web-devicons'}
     use {'dstein64/vim-startuptime', cmd = 'StartupTime'}
-	--
+
+	use {'rcarriga/nvim-notify'}
 	-- Theme
     use {'navarasu/onedark.nvim'}
 
@@ -89,15 +90,14 @@ return packer.startup(function(use)
 	}
 
 	-- Statusline
-	use { 'nvim-lualine/lualine.nvim',
+	use {'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('config.lualine')
 		end
 	}
 	-- File explorer
-	use {
-	  'kyazdani42/nvim-tree.lua',
+	use {'kyazdani42/nvim-tree.lua',
 	  requires = { 'kyazdani42/nvim-web-devicons' },
 	  config = function()
 		  require('nvim-tree').setup {}

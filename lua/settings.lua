@@ -43,6 +43,8 @@ for k, v in pairs(settings) do
 	vim.opt[k] = v
 end
 
+vim.notify = require('notify')
+
 require('onedark').load()
 
 vim.cmd[[
