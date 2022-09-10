@@ -34,7 +34,7 @@ local settings = {
      signcolumn = "yes" -- Always show signcolumns
 }
 
-vim.cmd( "source config/coc.vim" )
+vim.cmd( "source ~/.config/nvim/lua/config/coc.vim" )
 
 vim.opt.shortmess:append("c")
 
