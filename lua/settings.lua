@@ -6,6 +6,7 @@ local settings = {
     foldcolumn = '0', -- Set to 1 or more to see fold/unfold buttons + visual folds
     clipboard = "unnamedplus", -- Use System clipboard
     termguicolors = true, -- 24bit color support
+    autochdir = true,
 
     -- Tab settings
     tabstop = 4,
