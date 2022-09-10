@@ -26,7 +26,7 @@ map('n', '<leader>wc', ':noh<CR>')
 
 map('t', '<Esc>', '<C-\\><C-n><C-w>w')
 
-map('n', '<F4>', '<cmd>sp<cr><cmd>Tnew<cr>')
+map('n', '<F4>', '<cmd>sp<cr><cmd>Tnew<cr><C-w>J')
 
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
