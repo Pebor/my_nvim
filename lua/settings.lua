@@ -1,6 +1,6 @@
 local settings = {
     number = true, -- Numbered lines
-    mouse = "a", -- Mouse support
+    mouse = "nvi", -- Mouse support
     cmdheight = 1, -- Smaller space bellow statusline, coc recommends 2, 1 is for minimalism and the fact I don't need it
     ea = false, -- Doesn't shift all splits/windows when a new window/split si created/removed
     foldcolumn = '0', -- Set to 1 or more to see fold/unfold buttons + visual folds
