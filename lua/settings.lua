@@ -7,6 +7,7 @@ local settings = {
     clipboard = "unnamedplus", -- Use System clipboard
     termguicolors = true, -- 24bit color support
     autochdir = true,
+    laststatus = 3,
 
     -- Tab settings
     tabstop = 4,
