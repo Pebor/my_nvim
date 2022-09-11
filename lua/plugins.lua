@@ -48,6 +48,16 @@ return packer.startup(function(use)
     use {'kyazdani42/nvim-web-devicons'}
     use {'dstein64/vim-startuptime', cmd = 'StartupTime'}
 
+	use {'b0o/incline.nvim',
+		config = function()
+			require('incline').setup{
+				window = {
+					margin = { vertical = 0 }
+				}
+			}
+		end
+	}
+
 	use {'rcarriga/nvim-notify'}
 	-- Theme
     use {'navarasu/onedark.nvim'}
@@ -100,12 +110,7 @@ return packer.startup(function(use)
 	use {'kyazdani42/nvim-tree.lua',
 	  requires = { 'kyazdani42/nvim-web-devicons' },
 	  config = function()
-		  require('nvim-tree').setup {
-			  update_focused_file = { -- Makes it change working directory on change of buffers
-				enable = true,
-				update_cwd = true,
-			  },
-		  }
+		  require('nvim-tree').setup {}
 	  end,
 	  cmd = {'NvimTreeOpen', 'NvimTreeToggle', 'NvimTreeFindFile', 'NvimTreeFindFileToggle'}
 	}
