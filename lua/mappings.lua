@@ -41,6 +41,8 @@ map('n', '<F4>', term())
 
 map('n', '<leader>tn', '<cmd>tabnew<CR>')
 
+map('n', '<leader>nt', '<cmd>NvimTreeToggle<CR>')
+
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>')
