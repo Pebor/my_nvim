@@ -32,12 +32,12 @@ packer.init({
 
 return packer.startup(function(use)
     use {'wbthomason/packer.nvim'} -- Packer can manage itself
-    use {'neoclide/coc.nvim', branch = 'release'} -- coc? ,':|
+    -- use {'neoclide/coc.nvim', branch = 'release'} -- coc? ,':|
     use {'tpope/vim-eunuch'} -- UNIX shell commands :Remove :Move :Chmod ...
     use {'airblade/vim-gitgutter'} -- See which lines are added/modified etc.
     use {'tpope/vim-surround'} -- Surround, alternative nvim surround
     use {'tpope/vim-commentary'} -- Comment out stuff `gcc` line, `gc{motion}` (`gcap` - paragraph)
-    use {'honza/vim-snippets'} -- Collection of a lot of useful snippets
+    -- use {'honza/vim-snippets'} -- Collection of a lot of useful snippets
     use {'jiangmiao/auto-pairs'} -- Annoying yet useful auto pairs
     use {'sheerun/vim-polyglot'} -- Probably coc has it figured out, but just in case
 	use {'vimwiki/vimwiki'} -- vimwiki :)
@@ -47,6 +47,53 @@ return packer.startup(function(use)
     use {'junegunn/vim-easy-align'} -- easy alignment `ga{motion}{patern}` - `gaip=` (or use visual)
     use {'kyazdani42/nvim-web-devicons'}
     use {'dstein64/vim-startuptime', cmd = 'StartupTime'}
+
+	use 'mfussenegger/nvim-dap'
+
+	-- LSP
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		requires = {
+		  -- LSP Support
+		{'neovim/nvim-lspconfig'},
+		{'williamboman/mason.nvim'},
+		{'williamboman/mason-lspconfig.nvim'},
+
+		-- Autocompletion
+		{'hrsh7th/nvim-cmp'},
+		{'hrsh7th/cmp-buffer'},
+		{'hrsh7th/cmp-path'},
+		{'saadparwaiz1/cmp_luasnip'},
+		{'hrsh7th/cmp-nvim-lsp'},
+		{'hrsh7th/cmp-nvim-lua'},
+
+		-- Snippets
+		{'L3MON4D3/LuaSnip'},
+		{'rafamadriz/friendly-snippets'},
+		}
+	}
+	
+	use 'simrat39/rust-tools.nvim'
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+		config = function()
+			require('nvim-treesitter').setup()
+		end
+    }
+
+    use {'lukas-reineke/indent-blankline.nvim',
+		config = function()
+			require('indent_blankline').setup {}
+		end
+	}
+
+    use {'lewis6991/impatient.nvim',
+		config = function()
+			require('impatient').enable_profile()
+		end
+	}
 
 	use {'b0o/incline.nvim',
 		config = function()
@@ -60,7 +107,8 @@ return packer.startup(function(use)
 
 	use {'rcarriga/nvim-notify'}
 	-- Theme
-    use {'navarasu/onedark.nvim'}
+    -- use {'navarasu/onedark.nvim'}
+    use {'joshdick/onedark.vim'}
 
 	-- Hop to char/word etc, see keybinds
 	use {'phaazon/hop.nvim',
@@ -120,6 +168,23 @@ return packer.startup(function(use)
 			require('dressing').setup {}
 		end
 	}
+
+	-- use({
+	--   "folke/noice.nvim",
+	--   event = "VimEnter",
+	--   config = function()
+	-- 	  require("noice").setup({
+	-- 			  cmdline = {
+	-- 				  view = "cmdline"
+	-- 			  }
+	-- 		  })
+	--   end,
+	--   requires = {
+	-- 	-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+	-- 	"MunifTanjim/nui.nvim",
+	-- 	"rcarriga/nvim-notify",
+	-- 	}
+	-- })
 
 	if PACKER_BOOTSTRAP then
 		packer.sync()
