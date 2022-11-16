@@ -39,6 +39,8 @@ map('t', '<Esc>', '<C-\\><C-n><C-w>w')
 
 map('n', '<F4>', term())
 
+map('n', '<leader>e', ':lua vim.diagnostic.open_float(nil, {focus=false})')
+
 map('n', '<leader>tn', '<cmd>tabnew<CR>')
 
 map('n', '<leader>nt', '<cmd>NvimTreeToggle<CR>')

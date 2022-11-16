@@ -4,7 +4,7 @@ local settings = {
     cmdheight = 0, -- Smaller space bellow statusline, coc recommends 2, 1 is for minimalism and the fact I don't need it
     ea = false, -- Doesn't shift all splits/windows when a new window/split si created/removed
     foldcolumn = '0', -- Set to 1 or more to see fold/unfold buttons + visual folds
-    clipboard = "unnamedplus", -- Use System clipboard
+    -- clipboard = "unnamedplus", -- Use System clipboard
     termguicolors = true, -- 24bit color support
     autochdir = true,
     laststatus = 3,
@@ -20,23 +20,13 @@ local settings = {
     foldlevelstart = 99,
     foldenable = true,
 
-    -- Coc
-    cursorline = true,
-    smartcase = true,
-    ignorecase = true,
-    scrolloff = 6,
-
-    hidden = true,
-
-    backup = false,
-    writebackup = false,
-
     updatetime = 300,
 
-    signcolumn = "yes" -- Always show signcolumns
+    signcolumn = "yes", -- Always show signcolumns
 }
 
--- vim.cmd( "source ~/.config/nvim/lua/config/coc.vim" )
+-- Show line diagnostics automatically in hover window
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 vim.opt.shortmess:append("c")
 
@@ -44,23 +34,23 @@ for k, v in pairs(settings) do
 	vim.opt[k] = v
 end
 
-vim.notify = require('notify')
+-- vim.notify = require('notify')
 
-require('mason.settings').set({
-  ui = {
-    border = 'rounded'
-  }
-})
+-- require('mason.settings').set({
+--   ui = {
+--     border = 'rounded'
+--   }
+-- })
 
-local lsp = require('lsp-zero')
+-- local lsp = require('lsp-zero')
 
-lsp.preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
+-- lsp.preset('recommended')
+-- lsp.nvim_workspace()
+-- lsp.setup()
 
 local rt = require("rust-tools")
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_attach = function(client, buf)
 	-- Example maps, set your own with vim.api.nvim_buf_set_keymap(buf, "n", <lhs>, <rhs>, { desc = <desc> })
 	-- or a plugin like which-key.nvim
